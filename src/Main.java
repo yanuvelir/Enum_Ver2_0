@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         dayOfTheWeek();
-        dayOfTheWeekForTimeZone("Asia/Tokyo");
+        dayOfTheWeekForTimeZone("America/Phoenix");
     }
 
     //In this version of dayOfTheWeek the ENUM is not used due to using the DayOfWeek class !!!
