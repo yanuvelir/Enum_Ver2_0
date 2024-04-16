@@ -1,11 +1,13 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class Main {
 
     public static void main(String[] args) {
         dayOfTheWeek();
-
+        dayOfTheWeekForTimeZone("Asia/Tokyo");
     }
 
     //In this version of dayOfTheWeek the ENUM is not used due to using the DayOfWeek class !!!
@@ -40,7 +42,14 @@ public class Main {
                 break;
 
         }
+    }
 
+    public static void dayOfTheWeekForTimeZone(String timeZone) {
+        LocalDate locDate = LocalDate.now();
+        ZoneId zoneId = ZoneId.of(timeZone);
+        ZonedDateTime zonedDateTime = ZonedDateTime.of(locDate.atStartOfDay(), zoneId);
+        DayOfWeek dayOfWeek = zonedDateTime.getDayOfWeek();
+        System.out.println("Today in " + timeZone + " is " + dayOfWeek);
     }
 
 }
